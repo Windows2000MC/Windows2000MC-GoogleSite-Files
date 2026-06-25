@@ -1,0 +1,316 @@
+use stdlib;
+use medialib;
+use uilib;
+use graphlib;
+use utillib;
+
+void main ()
+{
+print("Log info - \n");
+print("Main system starting...\n");
+Canvas d = new Canvas();
+d.show();
+d.fullscreen(true);
+int w = d.getWidth();
+int h = d.getHeight();
+Graphics g = d.getGraphics();
+while(d.getKeyStates()==0) {
+g.setColor(0xffffff);
+g.fillRect(0,0,w,h);
+g.setColor(0x000000);
+g.drawString("Jcc2 Reloaded",70,120,Graphics.LEFT|Graphics.TOP);
+g.drawString("Presents",85,170,Graphics.LEFT|Graphics.TOP);
+sleep(2000);
+g.setColor(0xffffff);
+g.fillRect(0,0,w,h);
+g.setColor(0x000000);
+g.drawString("Windows2000MC",60,120,Graphics.LEFT|Graphics.TOP);
+g.drawString("Loading...",85,170,Graphics.LEFT|Graphics.TOP);
+d.repaint();
+Player c = new Player();
+string main="file:///e:/Java/Data/Pdata/Main.mp3";
+c.open(main);
+c.start();
+sleep(2000);
+Canvas x= new Canvas();
+x.show();
+x.fullscreen(true);
+Graphics y=x.getGraphics();
+while(x.getKeyStates()==0) {
+y.setColor(0xffffff);
+y.drawString("This is Beta version",41,120,Graphics.LEFT|Graphics.TOP);
+y.drawString("This might having some bugs!",10,170,Graphics.LEFT|Graphics.TOP);
+c.start();
+sleep(2000);
+c.close();
+y.setColor(0xffffff);
+y.fillRect(0,0,w,h);
+y.setColor(0x000000);
+y.drawString("Windows2000MC",60,120,Graphics.LEFT|Graphics.TOP);
+y.drawString("Loading...",85,170,Graphics.LEFT|Graphics.TOP);
+x.repaint();
+int l = messagebox("","Let's go!","Exit","Welcome to Menu program");y.setColor(0xffffff);
+y.fillRect(0,0,w,h);
+y.setColor(0x000000);
+y.drawString("Windows2000MC",60,120,Graphics.LEFT|Graphics.TOP);
+y.drawString("Loading...",85,170,Graphics.LEFT|Graphics.TOP);
+if(l == 0) {
+y.setColor(0xffffff);
+y.fillRect(0,0,w,h);
+y.setColor(0x000000);
+y.drawString("Windows2000MC",60,120,Graphics.LEFT|Graphics.TOP);
+y.drawString("Loading...",85,170,Graphics.LEFT|Graphics.TOP);print("Menu program is closed");
+return;
+}
+else if(l == 1) {
+while(l==l) {
+y.setColor(0xffffff);
+y.fillRect(0,0,w,h);
+y.setColor(0x000000);
+y.drawString("Windows2000MC",60,120,Graphics.LEFT|Graphics.TOP);
+y.drawString("Loading...",85,170,Graphics.LEFT|Graphics.TOP);sleep(2000);
+y.setColor(0xffffff);
+y.fillRect(0,0,w,h);
+y.setColor(0x000000);
+y.drawString("Windows2000MC",60,120,Graphics.LEFT|Graphics.TOP);
+y.drawString("Loading...",85,170,Graphics.LEFT|Graphics.TOP); string z = "" + getTime(Time.HOUR_OF_DAY);
+z = z + ":" + getTime(Time.MINUTE);
+z = z + ":" + getTime(Time.SECOND);string[] menu = {"Music player","Write and Print","Ram check","Clock","Converter","Tools","About","Exit"};
+ int mode = selectform("Menu "+z,"Open","Exit",menu);
+ if(mode == -1) {
+ print("Menu program is closing...");
+ sleep(1000);
+ print("Meun program is closed");
+ return;
+ }
+ else if(mode == 0) {
+ print("Loaded 'Music player'\n");
+g.setColor(0xffffff);
+g.fillRect(0,0,w,h);
+g.setColor(0x000000);
+g.drawString("Windows2000MC",60,120,Graphics.LEFT|Graphics.TOP);
+g.drawString("Loading...",85,170,Graphics.LEFT|Graphics.TOP); string[] music = {"Montagem Miau","Touch","homecoming","GS Beat (Midi)","Exit"};
+ int play = selectform("Music list","Play","Back",music);
+ Player p = new Player();
+ if(play==-1) {
+}
+else if(play==0) {
+g.setColor(0xffffff);
+g.fillRect(0,0,w,h);
+g.setColor(0x000000);
+g.drawString("Windows2000MC",60,120,Graphics.LEFT|Graphics.TOP);
+g.drawString("Loading...",85,170,Graphics.LEFT|Graphics.TOP);string m1 = "file:///e:/Java/Data/Pdata/Music1.mp3";
+p.open(m1);
+p.start();
+sleep(73000);
+p.close();
+}
+else if(play==1) {
+g.setColor(0xffffff);
+g.fillRect(0,0,w,h);
+g.setColor(0x000000);
+g.drawString("Windows2000MC",60,120,Graphics.LEFT|Graphics.TOP);
+g.drawString("Loading...",85,170,Graphics.LEFT|Graphics.TOP);string m2 = "file:///e:/Java/Data/Pdata/Music2.mp3";
+p.open(m2);
+p.start();
+sleep(130000);
+p.close();
+}
+else if(play==2) {
+g.setColor(0xffffff);
+g.fillRect(0,0,w,h);
+g.setColor(0x000000);
+g.drawString("Windows2000MC",60,120,Graphics.LEFT|Graphics.TOP);
+g.drawString("Loading...",85,170,Graphics.LEFT|Graphics.TOP);string m3 = "file:///e:/Java/Data/Pdata/Music3.mp3";
+p.open(m3);
+p.start();
+sleep(13000);
+p.close();
+}
+else if(play==3) {
+g.setColor(0xffffff);
+g.fillRect(0,0,w,h);
+g.setColor(0x000000);
+g.drawString("Windows2000MC",60,120,Graphics.LEFT|Graphics.TOP);
+g.drawString("Loading...",85,170,Graphics.LEFT|Graphics.TOP);string m4 = "file:///e:/Java/Data/Pdata/Music4.mp3";
+p.open(m4);
+p.start();
+sleep(32000);
+p.close();
+}
+else if(play==mode) {
+}
+else if(play==-1) {
+}
+}
+else if(mode == 1) {
+g.setColor(0xffffff);
+g.fillRect(0,0,w,h);
+g.setColor(0x000000);
+g.drawString("Windows2000MC",60,120,Graphics.LEFT|Graphics.TOP);
+g.drawString("Loading...",85,170,Graphics.LEFT|Graphics.TOP);print("Loaded 'Write and Print'\n");
+string q = editform("Write and Print","Print now!","Back","Your text here",100,TextField.ANY);
+if(q != null) {
+Player p = new Player();
+p.open(main);
+p.start();
+sleep(2000);
+p.close();
+Canvas e = new Canvas();
+e.show();
+e.fullscreen(true);
+int w = e.getWidth();
+int h = e.getHeight();
+Graphics f = e.getGraphics();
+while(e.getKeyStates() == 0) {
+f.setColor(0x000000);
+f.fillRect(0,0,w,h);
+f.setColor(0xffffff);
+f.fillRect(0,0,w,h);
+f.setColor(0x00000);
+f.drawString(q,5,5,Graphics.LEFT|Graphics.TOP);
+sleep(2000);
+if(0 == 1) {
+e.repaint();
+print("'Write and Print' Printed text - "+q+"\n");
+print("'Write and Print' Oparetion compeleted");
+}
+}
+}
+}
+else if(mode == 2) {
+g.setColor(0xffffff);
+g.fillRect(0,0,w,h);
+g.setColor(0x000000);
+g.drawString("Windows2000MC",60,120,Graphics.LEFT|Graphics.TOP);
+g.drawString("Loading...",85,170,Graphics.LEFT|Graphics.TOP);print("Loaded 'Ram check'\n");
+Canvas m = new Canvas();
+m.show();
+m.fullscreen(true);
+int w=m.getWidth();
+int h=m.getHeight();
+Graphics n=m.getGraphics();
+n.setColor(0xffffff);
+n.fillRect(0,0,w,h);
+n.setColor(0x000000);
+n.drawString("Free memory - " + freeMemory(),40,160,Graphics.LEFT|Graphics.TOP);
+m.repaint();
+print("'Ram check' freeMemory() showed\n");
+print("'Ram check' Oparetion compeleted!\n");
+}
+else if(mode == 3) {
+g.setColor(0xffffff);
+g.fillRect(0,0,w,h);
+g.setColor(0x000000);
+g.drawString("Windows2000MC",60,120,Graphics.LEFT|Graphics.TOP);
+g.drawString("Loading...",85,170,Graphics.LEFT|Graphics.TOP);print("Loaded 'Clock'\n");
+Canvas c = new Canvas();
+c.show();
+c.fullscreen(true);
+int w = c.getWidth();
+int h = c.getHeight();
+Graphics g = c.getGraphics();
+while(c.getKeyStates()==0) {
+g.setColor(0xffffff);
+g.fillRect(0,0,w,h);
+g.setColor(0x000000);
+string t = "" + getTime(Time.HOUR_OF_DAY);
+t = t + ":" + getTime(Time.MINUTE);
+t = t + ":" + getTime(Time.SECOND);
+g.drawString(t,90,160,Graphics.LEFT|Graphics.TOP);
+c.repaint();
+} 
+}
+else if(mode == 4) {
+g.setColor(0xffffff);
+g.fillRect(0,0,w,h);
+g.setColor(0x000000);
+g.drawString("Windows2000MC",60,120,Graphics.LEFT|Graphics.TOP);
+g.drawString("Loading...",85,170,Graphics.LEFT|Graphics.TOP);print("Loaded 'Converter'\n");
+string text = editform("Enter string","Enter","Back","",32,TextField.ANY);
+string[] cal = {"Base64","not avalivble","java.lang..","Diva"};
+int select = selectform("Use what?","Use","Back",cal);
+if(select == 0) {
+Base64 x = new Base64();
+string d = text;
+d = x.encode(text);
+messagebox("Result","Done","Back",d);
+}
+if(select==0) {
+messagebox("","","","The program ran into a problem\n:(");
+}
+else if(select==0) {
+g.setColor(0xffffff);
+g.fillRect(0,0,w,h);
+return;
+}
+}
+else if(mode == 6) {
+g.setColor(0xffffff);
+g.fillRect(0,0,w,h);
+g.setColor(0x000000);
+g.drawString("Windows2000MC",60,120,Graphics.LEFT|Graphics.TOP);
+g.drawString("Loading...",85,170,Graphics.LEFT|Graphics.TOP);messagebox("About","OK","Back","Menu Program with Jcc2 Reloaded\nVersion - 1.9 [Beta]\nBy Windows2000MC (YouTube)\n2024 - 2026");
+}
+else if(mode == 7) {
+print("Menu program is closing...\n");
+sleep(1000);
+print("Menu program is closed\n");
+return;
+}
+else if(mode == 5) {
+string[] tools = {"Render Test","Sound Test","ANTIOVERHEATING TOOL","Info and safety"};
+int tap=selectform("Tools "+z,"Run","Back",tools);
+if(tap==0) {
+Canvas b=new Canvas();
+b.show();
+b.fullscreen(true);
+Graphics c=b.getGraphics();
+while(b.getKeyStates()==0) {
+sleep(2000);
+c.setColor(0x000000);
+c.fillRect(0,0,w,h);
+sleep(2000);
+c.setColor(0xffffff);
+c.fillRect(0,0,w,h);
+sleep(2000);
+}
+messagebox("","OK","BACK","TEST OK");  
+}
+else if(tap==1) {
+sleep(2000);
+Canvas d=new Canvas();
+d.show();
+Graphics e=d.getGraphics();
+while(d.getKeyStates()==0) {
+e.setColor(0x000fff);
+e.drawString("SOUND TEST",70,140,Graphics.LEFT|Graphics.TOP);
+Player a=new Player();
+a.open(main);
+a.start();
+sleep(2000);
+string m3="file:///e:/Java/Data/Pdata/music3.mp3";
+a.open(m3);
+a.start();
+sleep(13000);
+a.close();
+}
+messagebox("","OK","BACK","TEST OK");
+}
+else if(tap==2) {
+Canvas f=new Canvas();
+f.show();
+Graphics h=f.getGraphics();
+while(f.getKeyStates()==0) {
+h.setColor(0x000fff);
+}
+}
+else if(tap==3) {
+messagebox("Info and Safety","OK","Back","The 'Menu program' had been coding since 2/12/2026 on Jcc2 Reloaded because i was bored, but now it was fun and stupid.\n\nThe 'Menu program' was started programming from a jcc2 sample named 'Media'\n\nPlease use this program wisely because it may cause your phone to crash! and cause bugs because of unplanned and junk codes!\nI hope you like my program!\nAuthor - Windows2000MC\nwww.youtube.com/@windows2000_mc\n\nCheck our Minecraft Bedrock resouces pack!\n'Windows 2000 Resouces Pack'\nMade in Bangladesh");
+}
+}
+}
+}
+}
+}
+}
