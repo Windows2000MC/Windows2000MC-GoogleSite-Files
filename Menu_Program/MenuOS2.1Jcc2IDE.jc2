@@ -1,0 +1,314 @@
+use stdlib;
+use vmlib;
+use uilib;
+use medialib;
+use utillib;
+use graphlib;
+
+void main()
+{
+	println("Log info -");
+println("Main System starting...");
+println("MenuOS is booting...");
+int w=240;
+int h=320;
+Canvas c=new Canvas();
+Graphics g=c.getGraphics();
+while(c.getKeyStates()==0) {
+c.show();
+c.fullscreen(true);
+g.setColor(0x000000);
+g.fillRect(0,0,w,h);
+sleep(1000);
+g.setColor(0xffffff);
+g.fillRect(0,0,w,h);
+g.setColor(0x000000);
+g.drawString("Windows2000MC",60,h/2,Graphics.LEFT|Graphics.TOP);
+g.drawString("Jcc2 Reloaded",70,300,Graphics.LEFT|Graphics.TOP);
+c.repaint();
+sleep(2500);
+int prog=1;
+while(prog==prog) {
+g.setColor(0xffffff);
+g.fillRect(0,0,w,h);
+g.setColor(0x000000);
+g.drawString("MenuOS",90,h/2,Graphics.LEFT|Graphics.TOP);
+g.setColor(0x000fff);
+g.fillRect(0,295,prog,320);
+g.setColor(0xffffff);
+g.drawString("Loading...",90,300,Graphics.LEFT|Graphics.TOP);
+prog=prog+1;
+c.repaint();
+if(prog==240) {
+while(h==h) {
+string timez=""+getTime(Time.HOUR_OF_DAY);
+timez=timez+":"+getTime(Time.MINUTE);
+timez=timez+":"+getTime(Time.SECOND);
+g.setColor(0xffffff);
+g.fillRect(0,0,w,h);
+g.setColor(0x000000);
+g.fillRect(0,0,240,25);
+g.setColor(0xffffff);
+g.drawString(timez,175,5,Graphics.LEFT|Graphics.TOP);
+g.drawString("Robi",10,5,Graphics.LEFT|Graphics.TOP);
+g.setColor(0x000000);
+g.drawString("Menu",100,300,Graphics.LEFT|Graphics.TOP);
+g.drawString("Exit",10,300,Graphics.LEFT|Graphics.TOP);
+g.drawLine(0,295,240,295);
+c.repaint();
+if(c.getKey()==-6) {
+c.show();
+g.setColor(0x000000);
+g.fillRect(0,295,240,320);
+g.setColor(0xffffff);
+g.drawString("Exit",10,300,Graphics.LEFT|Graphics.TOP);
+c.repaint();
+sleep(100);
+g.setColor(0x000fff);
+g.fillRect(0,25,240,35);
+g.setColor(0xffffff);
+g.drawString("Aborting...",90,30,Graphics.LEFT|Graphics.TOP);
+c.repaint();
+sleep(500);
+println("Graphics closing...");
+g.setColor(0x000000);
+g.fillRect(0,0,w,h);
+c.repaint();
+sleep(2000);
+println("MenuOS is aborted...");
+return;
+}
+else if(c.getKey()==-5) {
+while(w==w) {
+g.setColor(0x000000);
+g.fillRect(0,295,240,320);
+g.setColor(0xffffff);
+g.drawString("Menu",100,300,Graphics.LEFT|Graphics.TOP);
+c.repaint();
+sleep(100);
+g.setColor(0x000fff);
+g.fillRect(0,25,240,30);
+g.setColor(0xffffff);
+g.drawString("Loading...",85,30,Graphics.LEFT|Graphics.TOP);
+c.repaint();
+sleep(500);
+string[] menu={"Music Player","Image Viewer","Tools","Settings","Games"};
+int select=selectform("Menu "+timez,"Open","Options",menu);
+if(select==-1) {
+string[] option={"Links","Help","Support us","Exit"};
+int select1=selectform("Options","Open","Back",option);
+if(select1==3) {
+return;
+}
+else if(select1==0) {
+messagebox("Links","Ok","Back","YouTube\n\nhttps://www.youtube.com/@windows2000_mc\n\nFacebook\n\nhttps://m.facebook.com/Windows2000MC\n\nOur Website\n\nhttps://sites.google.com/view/windows2000mc-bangladesh/home\n\n\n\n[ More links will be added on later time. ]");
+}
+else if(select1==1) {
+string[] help={"Main Purpose","Music Player's root option","Image Viewer","Write and Print","Base64 Converter","PROGRAM DISTRUBISTION"};
+int select2=selectform("Help Center","Read","Back",help);
+if(select2==0) {
+messagebox("Main Purpose","Ok","Back","MenuOS is a very small custom mobile operating system written in Jcc2 language has complex features like Image Viewer, Write and Print, Base64 Converter and Games that keep you entertain!");
+}
+else if(select2==1) {
+messagebox("Music Player's root option","Ok","Back","Music Player has 4 built-in musics but in options menu, there is 'Open from Root' option which you can load other mp3 format files! but the only limitation for this feature is the 15sec limit duration.");
+}
+else if(select2==2) {
+messagebox("Image Viewer","Ok","Back","Image Viewer is a new graphical viewer that can load graphic files!\nSupported formats - \n*.jpg , *.png\n\n[ ONLY CAN BE OPEN VIA ROOT ]");
+}
+else if(select2==3) {
+messagebox("Write and Print","Ok","Back","Write and Print does a simple task. What you gonna do is type some texts and print it into a graphical paper!\n\nAfter you done - \nPress the 'FIRE' key to return");
+}
+else if(select2==4) {
+messagebox("Base64 Converter","Ok","Back","Base64 Converter is an offline tool that can encode and decode strings in Base64\n\n! To decode a string, use the clipboard feature is recommended !");
+}
+else if(select2==5) {
+messagebox("PROGRAM DISTRUBITION","Ok","Back","Program info - \n\nDisplay name - MenuOS\nReal name - Menu Program\nProgramming Language - Jcc2 Reloaded 1.1.2 J2ME\nProgramming Type - Java like\nProgram version - v2.0\nMain Development Date - 12/02/2026\nCurrent Development Date - 25/8/2026");
+}
+}
+else if(select1==2) {
+messagebox("Support us","Ok","Back","Althorghth i don't have a proper system or way to support my work but you can do by going to my youtube channel or my facebook page and click 'Subsrcibe' or 'Follow' as you wish....");
+}
+}
+else if(select==0) {
+Player p=new Player();
+string[] musiclist={"Montagem Miau","Touch by katsaye","homcoming","GS Beat"};
+int select3=selectform("Built-in Music List","Play","Options",musiclist);
+if(select3==-1) {
+string[] musicoptions={"Open from Root","About Music Player","Exit"};
+int muopselect=selectform("Music Options","Ok","Back",musicoptions);
+if(muopselect==0) {
+string play=editform("Root","Play","Back","file:///",200,TextField.ANY);
+if(play==null) {
+messagebox("Error","","Back","Please write a vaild file protocol and file location!");
+}
+else if(play!=null) {
+p.open(play);
+p.start();
+sleep(15000);
+p.close();
+}
+}
+else if(muopselect==1) {
+messagebox("About Music Player","Ok","Back","Music Player v1.2\n\nJSR 75 FileConnection API for root\n\nSource code engine - Menu Program v1.9");
+}
+else if(muopselect==2) {
+}
+}
+else if(select3==0) {
+string m1="file:///e:/Java/Data/Pdata/Music1.mp3";
+p.open(m1);
+p.start();
+sleep(73000);
+p.close();
+}
+else if(select3==1) {
+string m2="file:///e:/Java/Data/Pdata/Music2.mp3";
+p.open(m2);
+p.start();
+sleep(1300000);
+p.close();
+}
+else if(select3==2) {
+string m3="file:///e:/Java/Data/Pdata/Music3.mp3";
+p.open(m3);
+p.start();
+sleep(13000);
+p.close();
+}
+else if(select3==3) {
+string m4="file:///e:/Java/Data/Pdata/Music4.mp3";
+p.open(m4);
+p.start();
+sleep(32000);
+p.close();
+}
+}
+else if(select==1) {
+Canvas c=new Canvas();
+Graphics g=c.getGraphics();
+c.show();
+c.fullscreen(true);
+int w=240;
+int h=320;
+string view=editform("Root","View","Options","file:///",200,TextField.ANY);
+Image img=new Image(view);
+string[] imgoption={"Load Image","About Image Viewer","Exit"};
+int select5=selectform("Image Viewer Options","OK","Back",imgoption);
+if(select5==1) {
+messagebox("About Image Viewer","OK","Back","Image Viewer v1.1\n\nJSR 75 FileConnection API for root (only inside the jar's resources)\nJ2ME Basic Graphics API for view image\n\nSource code engine - Menu Program v2.0");
+}
+else if(select5==2) {
+}
+else if(select5==0) { 
+c.show();
+g.setColor(0xf0f0f0);
+g.fillRect(0,0,w,h);
+g.setColor(0x000000);
+g.drawString("Loading...",90,h/2,Graphics.LEFT|Graphics.TOP);
+c.repaint();
+sleep(1000);
+while(c.getKeyStates()==0) {
+g.setColor(0xf0f0f0);
+g.fillRect(0,0,w,h);
+g.drawImage(img,0,0,Graphics.LEFT|Graphics.TOP);
+g.setColor(0x000000);
+g.fillRect(0,295,240,320);
+g.setColor(0xffffff);
+g.drawString("Press any key to return",10,300,Graphics.LEFT|Graphics.TOP);
+g.setColor(0xfff000);
+g.fillRect(0,275,240,0);
+g.setColor(0x000000);
+g.drawString("Free Memory - "+freeMemory(),10,280,Graphics.LEFT|Graphics.TOP);
+c.repaint();
+}
+g.setColor(0xf0f0f0);
+g.fillRect(0,0,w,h);
+g.setColor(0x000000);
+g.drawString("Loading...",90,h/2,Graphics.LEFT|Graphics.TOP);
+c.repaint();
+sleep(500);
+}
+}
+else if(select==2) {
+string[] tools={"Write and Print","Java Heap Memory","Base64 Converter","Java SMark Program"};
+int select4=selectform("Tools","Open","Back",tools);
+if(select4==-1) {
+}
+else if(select4==0) {
+Canvas c=new Canvas();
+Graphics g=c.getGraphics();
+string[] wap={"Print a text","About Write and Print","Exit"};
+int select6=selectform("Write and Print","OK","Back",wap);
+if(select6==2) {
+}
+else if(select6==1) {
+messagebox("About Write and Print","OK","Back","Write and Print v1.1\n\nJ2ME Basic Graphics API for render graphics\n\nSource code engine - Menu Program v1.7");
+}
+else {
+string print1=editform("Text Field","Print","Back","Your text here",50,TextField.ANY);
+while(c.getKeyStates()==0) {
+c.show();
+c.fullscreen(true);
+g.setColor(0xf0f0f0);
+g.fillRect(0,0,w,h);
+g.setColor(0x000fff);
+g.fillRect(0,295,240,320);
+g.fillRect(0,0,240,25);
+g.setColor(0xffffff);
+g.drawString("Graphical Paper view",10,5,Graphics.LEFT|Graphics.TOP);
+g.drawString("Press any key to return",10,300,Graphics.LEFT|Graphics.TOP);
+g.setColor(0x000000);
+g.drawString(print1,10,45,Graphics.LEFT|Graphics.TOP);
+}
+}
+}
+else if(select4==1) {
+messagebox("Java Heap Memory","Ok","Back","Free memory - "+freeMemory()+"\n\nUsed memory - "+usedMemory());
+}
+else if(select4==2) {
+Base64 b64=new Base64();
+string[] b64menu={"Start Converstion","About Base64 Converter","Exit"};
+int select6=selectform("Base64 Converter","Ok","Back",b64menu);
+if(select6==2) {
+}
+else if(select6==1) {
+messagebox("About Base64 Converter","Ok","Back","Base64 Converter v1.1\n\nCustom Base64 API for converstion\n\nSource code engine - Menu Program v1.9");
+}
+else if(select6==0) {
+string b64text=editform("Text Field","Convert","Back","",256,TextField.ANY);
+string b64co=b64text;
+string[] b64comenu={"Base64 Encode","Base64 Decode"};
+int b64cosel=selectform("Use what?","Convert","Back",b64comenu);
+if(b64cosel==0) {
+string b64co=b64text;
+b64co=b64.encode(b64text);
+messagebox("Result","Ok","Back","Original text -\n"+b64text+"\n\nEncoded text -\n"+b64co);
+}
+else if(b64cosel==1) {
+string b64co=b64text;
+b64co=b64.decode(b64text);
+messagebox("Result","Ok","Back","Original text -\n"+b64text+"\n\nDecoded text -\n"+b64co);
+}
+}
+}
+else if(select4==3) {
+messagebox("Out of code space!","","","Not added in this version!");
+}
+}
+else if(select==3) {
+string[] settings={"About MenuOS"};
+int select7=selectform("Settings","Open","Back",settings);
+if(select7==0) {
+messagebox("About MenuOS","Ok","Back","MenuOS (Menu Program)\nwith Jcc2 Reloaded 1.1.2 J2ME\nVersion - 2.1 [Beta]\nBy Tanvir Islam (Windows2000MC)\n2024 - 2026");
+}
+}
+else if(select==4) {
+messagebox("Out of code space!","","","Not added in this version!");
+}
+}
+}
+}
+}
+}
+}
+}
